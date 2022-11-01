@@ -15,20 +15,16 @@ def start_new_game():
 
 
     # Создаем персонажа
-    player_name = input("Введите имя игрока и нажмите ENTER ")
-    if not player_name:
-        player_name = "Безымянный"
-    player_hp = 100
-    player_money = 50
-    player_potions = 0
+    player = ("Вася Питонов", 100, 50, 0)
+
 
     # запускаем главный цикл игры
     is_game = True
     while is_game:
         os.system("cls")
-        player_stats.show_player_stats(player_name, player_hp, player_money, player_potions)
+        player_stats.show_player_stats(player)
         print("-- ситуация:")
-        print(f"{player_name} приехал к камню")
+        print(f"{player[0]} приехал к камню")
         print("-- варианты")
         print("1 - Поехать на битву с разбойниками")
         print("2 - Играть в кости")
@@ -41,7 +37,7 @@ def start_new_game():
         elif answer == "2":
             pass
         elif answer == "3":
-            shop.visit_shop(player_name, player_hp, player_money, player_potions)
+            player = shop.visit_shop(player)
         elif answer == "4":
             is_game = False
             os.system("cls")
