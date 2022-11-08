@@ -1,6 +1,5 @@
 import os
 import shop
-import player_stats
 
 
 def start_new_game():
@@ -15,14 +14,18 @@ def start_new_game():
 
 
     # Создаем персонажа
+    # [0] имя, [1] hp, [2] money,[3] зелья
     player = ("Вася Питонов", 100, 50, 0)
-
 
     # запускаем главный цикл игры
     is_game = True
     while is_game:
         os.system("cls")
-        player_stats.show_player_stats(player)
+        print("--Персонаж--")
+        print("Имя", player[0])
+        print("Здоровье", player[1])
+        print("Деньги", player[2])
+        print("Зелья", player[3])
         print("-- ситуация:")
         print(f"{player[0]} приехал к камню")
         print("-- варианты")

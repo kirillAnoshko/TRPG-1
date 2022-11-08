@@ -1,27 +1,32 @@
 import os
-import player_stats
 def visit_shop(player):
+
+    name = player[0]
+    hp = player[1]
+    money = player[2]
+    potions = player[3]
+    os.system("cls")
+
+
     while True:
-        os.system("cls")
-        player_stats.show_player_stats(player)
-        print(f"{player} приехал в магазин")
+        print("--Персонаж--")
+        print("Имя", name)
+        print("Здоровье", hp)
+        print("Деньги", money)
+        print("Зелья", potions)
+        print(f"{player[0]} приехал в магазин")
         print("1 - Купить зелье, цена 10 р")
         print("2 - Уйти к камню")
-        answer = input("Сделайте выбор и нажмите ENTER ")           
+        answer = input("Сделайте выбор и нажмите ENTER ")
         if answer == "1":
             os.system("cls")
-            if player[2] >= 10:
-                player[2] -= 10
-                player[3] += 1
+            if money >= 10:
+                money -= 10
+                potions += 1
                 print("Купили зелье")
+                input("Нажмите ENTER для продолжения")
             else:
-                print("У вас нет денег!")    
+                print("У вас нет денег!")
                 input("Сделайте выбор и нажмите ENTER ")
-            if answer == "2":
-                return player
-            
-
-
-
-
-
+        elif answer == "2":
+            return (name, hp, money, potions)
