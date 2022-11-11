@@ -1,5 +1,7 @@
 import os
 import shop
+import hero_engine
+import casino
 
 
 def start_new_game():
@@ -15,7 +17,7 @@ def start_new_game():
 
     # Создаем персонажа
     # [0] имя, [1] hp, [2] money,[3] зелья
-    player = ("Вася Питонов", 100, 50, 0)
+    player = hero_engine.make_hero()
 
     # запускаем главный цикл игры
     is_game = True
@@ -26,6 +28,7 @@ def start_new_game():
         print("Здоровье", player[1])
         print("Деньги", player[2])
         print("Зелья", player[3])
+
         print("-- ситуация:")
         print(f"{player[0]} приехал к камню")
         print("-- варианты")
@@ -38,7 +41,7 @@ def start_new_game():
         if answer == "1":
             pass
         elif answer == "2":
-            pass
+            casino.visit_casino(player)
         elif answer == "3":
             player = shop.visit_shop(player)
         elif answer == "4":

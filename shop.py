@@ -1,19 +1,17 @@
 import os
+import hero_engine
 def visit_shop(player):
 
     name = player[0]
     hp = player[1]
-    money = player[2]
-    potions = player[3]
+    money = player[5]
+    potions = player[6]
     os.system("cls")
+
+    hero_engine.show_hero(player)
 
 
     while True:
-        print("--Персонаж--")
-        print("Имя", name)
-        print("Здоровье", hp)
-        print("Деньги", money)
-        print("Зелья", potions)
         print(f"{player[0]} приехал в магазин")
         print("1 - Купить зелье, цена 10 р")
         print("2 - Уйти к камню")
