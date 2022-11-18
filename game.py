@@ -2,6 +2,7 @@ import os
 import shop
 import hero_engine
 import casino
+import main_new
 
 
 def start_new_game():
@@ -23,11 +24,8 @@ def start_new_game():
     is_game = True
     while is_game:
         os.system("cls")
-        print("--Персонаж--")
-        print("Имя", player[0])
-        print("Здоровье", player[1])
-        print("Деньги", player[2])
-        print("Зелья", player[3])
+        print("--Персонажи--")
+        main_new.show_hero()
 
         print("-- ситуация:")
         print(f"{player[0]} приехал к камню")
@@ -41,7 +39,7 @@ def start_new_game():
         if answer == "1":
             pass
         elif answer == "2":
-            casino.visit_casino(player)
+            casino.show(player)
         elif answer == "3":
             player = shop.visit_shop(player)
         elif answer == "4":
